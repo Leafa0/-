@@ -25,4 +25,1843 @@ html,body{
 canvas{
   display:block;
   width:100vw;
- 
+  height:100vh
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  z-index:20;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg,#03050bcc,#03050af5);
+  overflow:auto
+}
+
+.panel{
+  width:min(94vw,760px);
+  padding:28px 18px 32px;
+  text-align:center
+}
+
+.brand{
+  font-size:11px;
+  letter-spacing:7px;
+  opacity:.55;
+  margin-bottom:9px
+}
+
+h1{
+  font-size:42px;
+  letter-spacing:7px;
+  margin:0;
+  font-weight:900;
+  text-shadow:0 2px 20px #ffffff20
+}
+
+.subtitle{
+  margin-top:8px;
+  font-size:11px;
+  letter-spacing:3px;
+  opacity:.55
+}
+
+.line{
+  width:100%;
+  height:1px;
+  background:#fff2;
+  margin:22px 0
+}
+
+.sectionTitle{
+  text-align:left;
+  font-size:10px;
+  letter-spacing:3px;
+  opacity:.55;
+  margin:14px 4px 8px
+}
+
+.storyCard{
+  text-align:left;
+  border-left:3px solid #fff;
+  padding:12px 15px;
+  background:#ffffff08
+}
+
+.storyCard b{
+  font-size:12px;
+  letter-spacing:2px
+}
+
+.storyCard p{
+  margin:7px 0 0;
+  font-size:13px;
+  line-height:1.7;
+  opacity:.72
+}
+
+.modes,.cars{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap
+}
+
+.btn{
+  border:1px solid #fff2;
+  background:#ffffff08;
+  color:#fff;
+  border-radius:8px;
+  padding:14px 12px
+}
+
+.btn:active{
+  background:#fff1
+}
+
+.mode{
+  flex:1;
+  min-width:145px;
+  text-align:left
+}
+
+.mode b{
+  display:block;
+  font-size:13px;
+  letter-spacing:1px
+}
+
+.mode span{
+  font-size:10px;
+  opacity:.55
+}
+
+.sel{
+  border-color:#fff;
+  box-shadow:inset 0 -2px 0 #fff;
+  background:#fff10
+}
+
+.car{
+  flex:1;
+  min-width:190px;
+  text-align:left
+}
+
+.carName{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:2px
+}
+
+.carType{
+  font-size:10px;
+  opacity:.55;
+  margin-top:4px
+}
+
+.carSpec{
+  font-size:11px;
+  opacity:.75;
+  margin-top:10px
+}
+
+.start{
+  margin-top:22px;
+  width:100%;
+  padding:16px;
+  border:0;
+  border-radius:8px;
+  background:#fff;
+  color:#080a0f;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:3px
+}
+
+.start:active{
+  transform:scale(.99)
+}
+
+#garage{
+  display:none
+}
+
+#finish{
+  display:none
+}
+
+.finishCard{
+  width:min(92vw,500px);
+  padding:32px;
+  text-align:center;
+  border:1px solid #fff2;
+  background:#080c14f2
+}
+
+#finishTitle{
+  font-size:30px;
+  letter-spacing:4px
+}
+
+.finishCard p{
+  opacity:.72
+}
+
+#hud{
+  position:fixed;
+  z-index:5;
+  top:13px;
+  left:14px;
+  text-shadow:0 2px 6px #000
+}
+
+#title{
+  font-size:10px;
+  letter-spacing:3px;
+  opacity:.7
+}
+
+.time{
+  font-size:28px;
+  font-weight:900
+}
+
+#opponent{
+  font-size:12px;
+  margin-top:2px
+}
+
+.small{
+  font-size:12px
+}
+
+#meter{
+  position:fixed;
+  z-index:5;
+  right:15px;
+  top:11px;
+  text-align:right;
+  text-shadow:0 2px 6px #000
+}
+
+.speed{
+  font-size:34px;
+  font-weight:900
+}
+
+.unit{
+  font-size:11px;
+  opacity:.7
+}
+
+#pause{
+  position:fixed;
+  right:14px;
+  top:76px;
+  z-index:6;
+  color:#fff;
+  background:#ffffff16;
+  border:1px solid #fff4;
+  border-radius:9px;
+  padding:9px 13px
+}
+
+.controls{
+  position:fixed;
+  z-index:6;
+  bottom:16px;
+  left:0;
+  right:0;
+  display:flex;
+  justify-content:space-between;
+  padding:0 20px;
+  pointer-events:none
+}
+
+.side{
+  display:flex;
+  gap:12px;
+  pointer-events:auto
+}
+
+.ctrl{
+  width:76px;
+  height:76px;
+  border-radius:20px;
+  border:1px solid #fff3;
+  background:#ffffff14;
+  color:#fff;
+  font-size:27px;
+  font-weight:900;
+  touch-action:none
+}
+
+.ctrl:active{
+  background:#fff3
+}
+
+#garageBox{
+  display:none
+}
+</style>
+</head>
+
+<body>
+
+<div id="menu" class="overlay">
+
+<div class="panel">
+
+<div class="brand">
+JAPAN NIGHT RUN / HIGHWAY STORY
+</div>
+
+<h1>NIGHT RUN</h1>
+
+<div class="subtitle">
+TOKYO BAY · 01:13 AM · STREET BATTLE
+</div>
+
+<div class="line"></div>
+
+<div class="storyCard">
+
+<b id="storyTitle">
+STAGE 01　MIDNIGHT ENTRY
+</b>
+
+<p id="storyText">
+湾岸の直線に最初のライバルが現れる
+アクセルを踏み抜いて先行車を捕まえろ
+</p>
+
+</div>
+
+<div class="sectionTitle">
+MODE
+</div>
+
+<div class="modes">
+
+<button class="btn mode sel" id="storyBtn">
+<b>STORY BATTLE</b>
+<span>ライバルを倒して進む</span>
+</button>
+
+<button class="btn mode" id="timeBtn">
+<b>TIME ATTACK</b>
+<span>自分の最速タイムへ</span>
+</button>
+
+</div>
+
+<div class="sectionTitle">
+SELECT MACHINE
+</div>
+
+<div class="cars">
+
+<button class="btn car sel" data-car="0">
+
+<div class="carName">
+RX-7 TYPE R
+</div>
+
+<div class="carType">
+LIGHTWEIGHT ROTARY SPORTS
+</div>
+
+<div class="carSpec">
+285 km/h　ACCEL ★★★★★
+</div>
+
+</button>
+
+
+<button class="btn car" data-car="1">
+
+<div class="carName">
+FZ-200
+</div>
+
+<div class="carType">
+HIGH SPEED COUPE
+</div>
+
+<div class="carSpec">
+315 km/h　TOP SPEED ★★★★★
+</div>
+
+</button>
+
+
+<button class="btn car" data-car="2">
+
+<div class="carName">
+GT-X
+</div>
+
+<div class="carType">
+BALANCED SPORTS
+</div>
+
+<div class="carSpec">
+300 km/h　BALANCE ★★★★★
+</div>
+
+</button>
+
+</div>
+
+<div class="line"></div>
+
+<div style="font-size:12px;opacity:.55">
+CREDITS <span id="money">¥10,000</span>
+</div>
+
+<button class="start" id="start">
+START NIGHT RUN
+</button>
+
+</div>
+</div>
+
+
+<div id="finish" class="overlay">
+
+<div class="finishCard">
+
+<div class="brand">
+HIGHWAY BATTLE RESULT
+</div>
+
+<h2 id="finishTitle">
+YOU WIN
+</h2>
+
+<p id="result"></p>
+
+<p id="reward"></p>
+
+<p id="next"></p>
+
+<button class="start" id="nextBtn">
+GARAGE
+</button>
+
+</div>
+
+</div>
+
+
+<div id="hud">
+
+<div id="title">
+JAPAN NIGHT RUN
+</div>
+
+<div class="time" id="time">
+00:00.000
+</div>
+
+<div id="opponent">
+RIVAL
+</div>
+
+<div class="small">
+DIST <span id="dist">0.0</span> km　
+GAP <span id="gap">180</span> m
+</div>
+
+</div>
+
+
+<div id="meter">
+
+<div class="speed" id="speed">
+0
+</div>
+
+<div class="unit">
+km/h　
+<span id="gear">GEAR 1</span>
+</div>
+
+</div>
+
+
+<button id="pause">
+PAUSE
+</button>
+
+
+<div class="controls">
+
+<div class="side">
+
+<button class="ctrl" id="left">
+◀
+</button>
+
+<button class="ctrl" id="right">
+▶
+</button>
+
+</div>
+
+
+<div class="side">
+
+<button class="ctrl" id="brake">
+■
+</button>
+
+<button class="ctrl" id="gas">
+▲
+</button>
+
+</div>
+
+</div>
+
+
+<canvas id="game"></canvas>
+
+
+<script>
+
+const cars=[
+
+{
+ name:"RX-7 TYPE R",
+ max:285,
+ acc:108,
+ turn:.82,
+ body:"#b9212d",
+ roof:"#171b22"
+},
+
+{
+ name:"FZ-200",
+ max:315,
+ acc:88,
+ turn:.68,
+ body:"#e3e5e8",
+ roof:"#171b22"
+},
+
+{
+ name:"GT-X",
+ max:300,
+ acc:96,
+ turn:.75,
+ body:"#315a9c",
+ roof:"#171b22"
+}
+
+];
+
+
+const rivals=[
+
+{
+ name:"KAI",
+ car:"NIGHT R-1",
+ pace:225,
+ text:"湾岸の直線に現れる最初のライバル
+まずはこいつを抜け"
+},
+
+{
+ name:"REI",
+ car:"SPECTER 7",
+ pace:240,
+ text:"高速コーナーが得意なREI
+後ろにつかれたら一気に引き離せ"
+},
+
+{
+ name:"SHIN",
+ car:"BLACK FZ",
+ pace:253,
+ text:"300km/h域でも離れない
+ここからが本当の夜間戦だ"
+},
+
+{
+ name:"ZERO",
+ car:"ZERO-X",
+ pace:266,
+ text:"最後のライバル
+湾岸最速の座をかけて勝負する"
+}
+
+];
+
+
+let chosen=0;
+let stage=0;
+let mode="story";
+let credits=10000;
+let best=Infinity;
+
+let running=false;
+let paused=false;
+let gas=false;
+let brake=false;
+let steer=0;
+
+let pos=0;
+let lane=0;
+let speed=0;
+let t=0;
+let gap=180;
+
+let last=performance.now();
+
+
+const cv=document.getElementById("game");
+const ctx=cv.getContext("2d");
+
+let W=innerWidth;
+let H=innerHeight;
+let D=1;
+
+
+function resize(){
+
+ D=Math.min(devicePixelRatio||1,2);
+
+ W=innerWidth;
+ H=innerHeight;
+
+ cv.width=W*D;
+ cv.height=H*D;
+
+ ctx.setTransform(D,0,0,D,0,0);
+
+}
+
+addEventListener("resize",resize);
+
+resize();
+
+
+function refreshMenu(){
+
+ document.getElementById("money").textContent=
+ "¥"+credits.toLocaleString();
+
+ if(mode==="story"){
+
+  const r=rivals[stage];
+
+  document.getElementById("storyTitle").textContent=
+  `STAGE ${String(stage+1).padStart(2,"0")}　${r.name} / ${r.car}`;
+
+  document.getElementById("storyText").textContent=
+  r.text;
+
+ }else{
+
+  document.getElementById("storyTitle").textContent=
+  "TIME ATTACK　NIGHT EXPRESS";
+
+  document.getElementById("storyText").textContent=
+  "ライバルなし
+夜の高速をどこまで速く走れるか挑戦しよう";
+
+ }
+
+}
+
+
+refreshMenu();
+
+
+document.querySelectorAll(".car").forEach(b=>{
+
+ b.onclick=()=>{
+
+  document
+  .querySelectorAll(".car")
+  .forEach(x=>x.classList.remove("sel"));
+
+  b.classList.add("sel");
+
+  chosen=+b.dataset.car;
+
+ };
+
+});
+
+
+storyBtn.onclick=()=>{
+
+ mode="story";
+
+ storyBtn.classList.add("sel");
+ timeBtn.classList.remove("sel");
+
+ refreshMenu();
+
+};
+
+
+timeBtn.onclick=()=>{
+
+ mode="time";
+
+ timeBtn.classList.add("sel");
+ storyBtn.classList.remove("sel");
+
+ refreshMenu();
+
+};
+
+
+function start(){
+
+ pos=0;
+ lane=0;
+ speed=0;
+ t=0;
+ gap=180;
+
+ running=true;
+ paused=false;
+
+ last=performance.now();
+
+ menu.style.display="none";
+ finish.style.display="none";
+
+ opponent.textContent=
+ mode==="story"
+ ?
+ `RIVAL ${rivals[stage].name} / ${rivals[stage].car}`
+ :
+ "TIME ATTACK";
+
+}
+
+
+document
+.getElementById("start")
+.onclick=start;
+
+
+pause.onclick=()=>{
+
+ paused=!paused;
+
+};
+
+
+nextBtn.onclick=()=>{
+
+ finish.style.display="none";
+ menu.style.display="flex";
+
+ if(mode==="story" && stage<3){
+
+  stage++;
+
+ }
+
+ refreshMenu();
+
+};
+
+
+function bind(id,down,up){
+
+ const e=document.getElementById(id);
+
+ e.addEventListener("pointerdown",ev=>{
+
+  ev.preventDefault();
+
+  down();
+
+ });
+
+ ["pointerup","pointercancel","pointerleave"]
+ .forEach(k=>{
+
+  e.addEventListener(k,ev=>{
+
+   ev.preventDefault();
+
+   up();
+
+  });
+
+ });
+
+}
+
+
+bind(
+ "left",
+ ()=>steer=-1,
+ ()=>{if(steer<0)steer=0}
+);
+
+
+bind(
+ "right",
+ ()=>steer=1,
+ ()=>{if(steer>0)steer=0}
+);
+
+
+bind(
+ "gas",
+ ()=>gas=true,
+ ()=>gas=false
+);
+
+
+bind(
+ "brake",
+ ()=>brake=true,
+ ()=>brake=false
+);
+
+
+addEventListener("keydown",e=>{
+
+ if(e.key==="ArrowLeft")steer=-1;
+
+ if(e.key==="ArrowRight")steer=1;
+
+ if(e.key==="ArrowUp")gas=true;
+
+ if(e.key==="ArrowDown")brake=true;
+
+});
+
+
+addEventListener("keyup",e=>{
+
+ if(e.key==="ArrowLeft"&&steer<0)
+ steer=0;
+
+ if(e.key==="ArrowRight"&&steer>0)
+ steer=0;
+
+ if(e.key==="ArrowUp")
+ gas=false;
+
+ if(e.key==="ArrowDown")
+ brake=false;
+
+});
+
+
+function curve(z){
+
+ return Math.sin(z*.00105)*.55
+ +Math.sin(z*.0024+1.3)*.22
+ +Math.sin(z*.00031)*.45;
+
+}
+
+
+function roadPoint(p){
+
+ const horizon=H*.38;
+
+ const bottom=H;
+
+ const y=
+ horizon+
+ p*p*(bottom-horizon);
+
+ const center=
+ W/2+
+ curve(pos+(1-p)*3600)
+ *p*
+ W*.16;
+
+ const width=
+ 20+p*W*.62;
+
+ return{
+  y,
+  center,
+  width
+ };
+
+}
+
+
+function drawCar(x,y,s,col,player=false){
+
+ ctx.save();
+
+ ctx.translate(x,y);
+
+ const w=62*s;
+ const h=96*s;
+
+
+ // shadow
+
+ ctx.fillStyle="#0009";
+
+ ctx.beginPath();
+
+ ctx.ellipse(
+  0,
+  h*.48,
+  w*.72,
+  h*.14,
+  0,
+  0,
+  Math.PI*2
+ );
+
+ ctx.fill();
+
+
+ // tires
+
+ ctx.fillStyle="#030406";
+
+ ctx.beginPath();
+
+ ctx.roundRect(
+  -w*.58,
+  -h*.12,
+  w*.18,
+  h*.55,
+  5*s
+ );
+
+ ctx.fill();
+
+
+ ctx.beginPath();
+
+ ctx.roundRect(
+  w*.40,
+  -h*.12,
+  w*.18,
+  h*.55,
+  5*s
+ );
+
+ ctx.fill();
+
+
+ // metallic body
+
+ const g=
+ ctx.createLinearGradient(
+  -w/2,
+  0,
+  w/2,
+  0
+ );
+
+ g.addColorStop(0,"#08090b");
+ g.addColorStop(.14,col);
+ g.addColorStop(.42,col);
+ g.addColorStop(.52,"#ffffff18");
+ g.addColorStop(.72,col);
+ g.addColorStop(1,"#06070a");
+
+ ctx.fillStyle=g;
+
+ ctx.beginPath();
+
+ ctx.moveTo(
+  -w*.49,
+  h*.40
+ );
+
+ ctx.lineTo(
+  -w*.53,
+  h*.08
+ );
+
+ ctx.quadraticCurveTo(
+  -w*.50,
+  -h*.12,
+  -w*.39,
+  -h*.31
+ );
+
+ ctx.quadraticCurveTo(
+  -w*.28,
+  -h*.48,
+  0,
+  -h*.50
+ );
+
+ ctx.quadraticCurveTo(
+  w*.28,
+  -h*.48,
+  w*.39,
+  -h*.31
+ );
+
+ ctx.quadraticCurveTo(
+  w*.50,
+  -h*.12,
+  w*.53,
+  h*.08
+ );
+
+ ctx.lineTo(
+  w*.49,
+  h*.40
+ );
+
+ ctx.quadraticCurveTo(
+  0,
+  h*.55,
+  -w*.49,
+  h*.40
+ );
+
+ ctx.fill();
+
+
+ // rear glass
+
+ const glass=
+ ctx.createLinearGradient(
+  0,
+  -h*.44,
+  0,
+  -h*.12
+ );
+
+ glass.addColorStop(0,"#17242d");
+ glass.addColorStop(.5,"#071016");
+ glass.addColorStop(1,"#020507");
+
+ ctx.fillStyle=glass;
+
+ ctx.beginPath();
+
+ ctx.moveTo(
+  -w*.30,
+  -h*.27
+ );
+
+ ctx.quadraticCurveTo(
+  -w*.22,
+  -h*.42,
+  0,
+  -h*.44
+ );
+
+ ctx.quadraticCurveTo(
+  w*.22,
+  -h*.42,
+  w*.30,
+  -h*.27
+ );
+
+ ctx.lineTo(
+  w*.24,
+  -h*.12
+ );
+
+ ctx.lineTo(
+  -w*.24,
+  -h*.12
+ );
+
+ ctx.closePath();
+
+ ctx.fill();
+
+
+ // glass reflection
+
+ ctx.strokeStyle="#ffffff18";
+ ctx.lineWidth=1.2*s;
+
+ ctx.beginPath();
+
+ ctx.moveTo(
+  -w*.22,
+  -h*.35
+ );
+
+ ctx.lineTo(
+  w*.18,
+  -h*.35
+ );
+
+ ctx.stroke();
+
+
+ // spoiler
+
+ if(player){
+
+  ctx.fillStyle="#090a0c";
+
+  ctx.fillRect(
+   -w*.45,
+   -h*.045,
+   w*.90,
+   h*.055
+  );
+
+  ctx.fillRect(
+   -w*.37,
+   -h*.13,
+   w*.06,
+   h*.11
+  );
+
+  ctx.fillRect(
+   w*.31,
+   -h*.13,
+   w*.06,
+   h*.11
+  );
+
+ }
+
+
+ // rear bumper
+
+ ctx.fillStyle="#0008";
+
+ ctx.beginPath();
+
+ ctx.roundRect(
+  -w*.40,
+  h*.28,
+  w*.80,
+  h*.18,
+  4*s
+ );
+
+ ctx.fill();
+
+
+ // tail lights
+
+ const red=
+ ctx.createLinearGradient(
+  -w*.36,
+  0,
+  w*.36,
+  0
+ );
+
+ red.addColorStop(0,"#42070b");
+ red.addColorStop(.15,"#ff3440");
+ red.addColorStop(.5,"#ff6670");
+ red.addColorStop(.85,"#ff3440");
+ red.addColorStop(1,"#42070b");
+
+ ctx.fillStyle=red;
+
+ ctx.fillRect(
+  -w*.36,
+  h*.17,
+  w*.72,
+  5*s
+ );
+
+ ctx.fillStyle="#ffb2b8";
+
+ ctx.fillRect(
+  -w*.32,
+  h*.18,
+  w*.10,
+  1.2*s
+ );
+
+ ctx.fillRect(
+  w*.22,
+  h*.18,
+  w*.10,
+  1.2*s
+ );
+
+
+ // license plate
+
+ ctx.fillStyle="#d8d7ce";
+
+ ctx.fillRect(
+  -w*.16,
+  h*.27,
+  w*.32,
+  6*s
+ );
+
+ ctx.fillStyle="#333";
+
+ ctx.font=
+ `${Math.max(5,7*s)}px Arial`;
+
+ ctx.textAlign="center";
+
+ ctx.fillText(
+  "NIGHT RUN",
+  0,
+  h*.32
+ );
+
+
+ // diffuser
+
+ ctx.fillStyle="#050608";
+
+ ctx.fillRect(
+  -w*.37,
+  h*.40,
+  w*.74,
+  h*.10
+ );
+
+
+ // exhaust
+
+ ctx.fillStyle="#15181c";
+
+ ctx.beginPath();
+
+ ctx.arc(
+  -w*.27,
+  h*.43,
+  4*s,
+  0,
+  Math.PI*2
+ );
+
+ ctx.fill();
+
+
+ ctx.beginPath();
+
+ ctx.arc(
+  w*.27,
+  h*.43,
+  4*s,
+  0,
+  Math.PI*2
+ );
+
+ ctx.fill();
+
+
+ // highlights
+
+ ctx.strokeStyle="#ffffff24";
+ ctx.lineWidth=1*s;
+
+ ctx.beginPath();
+
+ ctx.moveTo(
+  -w*.43,
+  h*.03
+ );
+
+ ctx.quadraticCurveTo(
+  -w*.33,
+  -h*.20,
+  -w*.24,
+  -h*.28
+ );
+
+ ctx.stroke();
+
+
+ ctx.beginPath();
+
+ ctx.moveTo(
+  w*.43,
+  h*.03
+ );
+
+ ctx.quadraticCurveTo(
+  w*.33,
+  -h*.20,
+  w*.24,
+  -h*.28
+ );
+
+ ctx.stroke();
+
+
+ ctx.restore();
+
+}
+
+
+function draw(){
+
+ const horizon=H*.38;
+
+
+ // sky
+
+ let sky=
+ ctx.createLinearGradient(
+  0,
+  0,
+  0,
+  horizon
+ );
+
+ sky.addColorStop(0,"#02040b");
+ sky.addColorStop(.65,"#071426");
+ sky.addColorStop(1,"#18334c");
+
+ ctx.fillStyle=sky;
+
+ ctx.fillRect(
+  0,
+  0,
+  W,
+  H
+ );
+
+
+ // moon
+
+ ctx.fillStyle="#ffffff08";
+
+ ctx.beginPath();
+
+ ctx.arc(
+  W*.78,
+  H*.15,
+  55,
+  0,
+  Math.PI*2
+ );
+
+ ctx.fill();
+
+
+ ctx.fillStyle="#d9e2ea";
+
+ ctx.beginPath();
+
+ ctx.arc(
+  W*.78,
+  H*.15,
+  14,
+  0,
+  Math.PI*2
+ );
+
+ ctx.fill();
+
+
+ // skyline
+
+ ctx.fillStyle="#030509";
+
+ for(let i=0;i<45;i++){
+
+  const bw=18+(i%7)*11;
+  const bh=20+(i*37%120);
+
+  ctx.fillRect(
+   i*W/45,
+   horizon-bh,
+   bw,
+   bh
+  );
+
+ }
+
+
+ // city lights
+
+ for(let i=0;i<110;i++){
+
+  ctx.fillStyle=
+  i%5===0
+  ?" #d7c27a"
+  :"#9eb8d1";
+
+  ctx.fillRect(
+   (i*73)%W,
+   horizon-((i*41)%125),
+   2,
+   3
+  );
+
+ }
+
+
+ // ground
+
+ ctx.fillStyle="#08121f";
+
+ ctx.fillRect(
+  0,
+  horizon,
+  W,
+  H-horizon
+ );
+
+
+ // road
+
+ const near=roadPoint(1);
+ const far=roadPoint(0);
+
+ ctx.fillStyle="#171b21";
+
+ ctx.beginPath();
+
+ ctx.moveTo(
+  far.center-10,
+  far.y
+ );
+
+ ctx.lineTo(
+  far.center+10,
+  far.y
+ );
+
+ ctx.lineTo(
+  near.center+near.width/2,
+  near.y
+ );
+
+ ctx.lineTo(
+  near.center-near.width/2,
+  near.y
+ );
+
+ ctx.closePath();
+
+ ctx.fill();
+
+
+ // asphalt reflections
+
+ for(let i=0;i<90;i++){
+
+  const p=(i*37%100)/100;
+  const q=roadPoint(p);
+
+  const alpha=.025+(i%4)*.008;
+
+  ctx.fillStyle=
+  `rgba(255,255,255,${alpha})`;
+
+  ctx.fillRect(
+   q.center+(i%7-3)*p*W*.08,
+   q.y+4+(i*19%50)*p,
+   1+p*2,
+   1
+  );
+
+ }
+
+
+ // road lines
+
+ for(let i=0;i<26;i++){
+
+  const p=i/26+.01;
+  const q=roadPoint(p);
+
+  if(i%2===0){
+
+   ctx.strokeStyle="#f1f0df";
+   ctx.lineWidth=2+p*4;
+
+   ctx.beginPath();
+
+   ctx.moveTo(
+    q.center,
+    q.y
+   );
+
+   ctx.lineTo(
+    q.center,
+    q.y+7+p*25
+   );
+
+   ctx.stroke();
+
+  }
+
+
+  ctx.strokeStyle="#c9d0d8";
+  ctx.lineWidth=2+p*4;
+
+  ctx.beginPath();
+
+  ctx.moveTo(
+   q.center-q.width/2,
+   q.y
+  );
+
+  ctx.lineTo(
+   q.center-q.width/2-12-p*28,
+   q.y+13+p*20
+  );
+
+  ctx.stroke();
+
+
+  ctx.beginPath();
+
+  ctx.moveTo(
+   q.center+q.width/2,
+   q.y
+  );
+
+  ctx.lineTo(
+   q.center+q.width/2+12+p*28,
+   q.y+13+p*20
+  );
+
+  ctx.stroke();
+
+ }
+
+
+ // guardrail lights
+
+ for(let i=0;i<18;i++){
+
+  const p=(i/18+.03)%1;
+
+  const q=roadPoint(p);
+
+  const x=
+  q.center-q.width/2-18-p*25;
+
+  const y=q.y;
+
+  ctx.strokeStyle="#737f89";
+  ctx.lineWidth=2;
+
+  ctx.beginPath();
+
+  ctx.moveTo(
+   x,
+   y
+  );
+
+  ctx.lineTo(
+   x,
+   y-55-p*100
+  );
+
+  ctx.stroke();
+
+
+  ctx.fillStyle="#ffe7a0";
+
+  ctx.fillRect(
+   x-2,
+   y-58-p*100,
+   4,
+   4
+  );
+
+ }
+
+
+ // speed effects
+
+ if(speed>210){
+
+  ctx.strokeStyle="#fff5";
+
+  for(let i=0;i<16;i++){
+
+   const x=Math.random()*W;
+   const y=H*.42+Math.random()*H*.52;
+
+   ctx.beginPath();
+
+   ctx.moveTo(
+    x,
+    y
+   );
+
+   ctx.lineTo(
+    x+(x-W/2)*.05,
+    y+35
+   );
+
+   ctx.stroke();
+
+  }
+
+ }
+
+
+ // rival
+
+ if(mode==="story"){
+
+  const ep=
+  Math.max(
+   .05,
+   Math.min(.72,1-gap/340)
+  );
+
+  const ey=
+  horizon+
+  ep*ep*(H*.72);
+
+  const ec=
+  W/2+
+  curve(pos+gap*9)
+  *ep*
+  W*.16;
+
+  drawCar(
+   ec,
+   ey,
+   .44,
+   ["#777","#252831","#0c0d11","#111318"][stage],
+   false
+  );
+
+ }
+
+
+ // player
+
+ const c=cars[chosen];
+
+ drawCar(
+  W/2+lane*W*.22,
+  H*.79,
+  1,
+  c.body,
+  true
+ );
+
+}
+
+
+function fmt(v){
+
+ const m=Math.floor(v/60);
+ const s=Math.floor(v%60);
+ const ms=Math.floor(v%1*1000);
+
+ return String(m).padStart(2,"0")
+ +":"
+ +String(s).padStart(2,"0")
+ +"."
+ +String(ms).padStart(3,"0");
+
+}
+
+
+function finishGame(win){
+
+ running=false;
+
+ const c=cars[chosen];
+
+ finishTitle.textContent=
+ win
+ ?"YOU WIN"
+ :"TIME UP";
+
+ result.textContent=
+ `${c.name}　TIME ${fmt(t)}`;
+
+ let reward=
+ mode==="story"
+ ?
+ (win
+  ?4000+stage*1500
+  :1000)
+ :
+ Math.max(
+  1000,
+  Math.round(5000-t*6)
+ );
+
+ credits+=reward;
+
+ rewardEl.textContent=
+ `REWARD +¥${reward.toLocaleString()}`;
+
+ if(mode==="time" && win && t<best){
+  best=t;
+ }
+
+ next.textContent=
+ mode==="story"
+ ?
+ (
+  win
+  ?
+  (
+   stage<3
+   ?"NEXT RIVAL IS WAITING"
+   :"STORY COMPLETE"
+  )
+  :
+  "TRY AGAIN"
+ )
+ :
+ `BEST ${best===Infinity?"--":fmt(best)}`;
+
+ finish.style.display="flex";
+
+}
+
+
+const rewardEl=
+document.getElementById("reward");
+
+
+function update(now){
+
+ const dt=
+ Math.min(
+  .04,
+  (now-last)/1000
+ );
+
+ last=now;
+
+
+ if(running&&!paused){
+
+  const c=cars[chosen];
+
+  const r=
+  mode==="story"
+  ?rivals[stage]
+  :null;
+
+
+  if(gas){
+   speed+=c.acc*dt;
+  }else{
+   speed-=20*dt;
+  }
+
+
+  if(brake){
+   speed-=155*dt;
+  }
+
+
+  speed=
+  Math.max(
+   0,
+   Math.min(c.max,speed)
+  );
+
+
+  lane+=
+  steer*
+  dt*
+  (c.turn+speed/390);
+
+
+  lane*=
+  Math.pow(
+   .986,
+   dt*60
+  );
+
+
+  lane=
+  Math.max(
+   -1.08,
+   Math.min(1.08,lane)
+  );
+
+
+  pos+=
+  speed*
+  dt*
+  5.6;
+
+
+  t+=dt;
+
+
+  if(mode==="story"){
+
+   gap+=
+   (speed-r.pace)*
+   dt*
+   .68;
+
+   gap=
+   Math.max(
+    0,
+    Math.min(350,gap)
+   );
+
+
+   if(gap<8){
+
+    finishGame(true);
+
+   }else if(pos>12000){
+
+    finishGame(gap<180);
+
+   }
+
+  }else if(pos>10800){
+
+   finishGame(true);
+
+  }
+
+ }
+
+
+ document.getElementById("time")
+ .textContent=fmt(t);
+
+ document.getElementById("speed")
+ .textContent=Math.round(speed);
+
+ document.getElementById("dist")
+ .textContent=(pos/1000).toFixed(1);
+
+ document.getElementById("gap")
+ .textContent=Math.round(gap);
+
+ document.getElementById("gear")
+ .textContent=
+ "GEAR "+
+ Math.min(
+  6,
+  Math.floor(speed/52)+1
+ );
+
+
+ draw();
+
+ requestAnimationFrame(update);
+
+}
+
+
+requestAnimationFrame(update);
+
+</script>
+
+</body>
+</html>
